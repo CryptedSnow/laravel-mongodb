@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use MongoDB\Laravel\Eloquent\Model;
-use MongoDB\Laravel\Eloquent\SoftDeletes;
+use MongoDB\Laravel\Eloquent\{Model,SoftDeletes};
 
 class HunterModel extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $connection = 'mongodb';
     protected $collection = 'hunters';
     protected $primary_key = '_id';

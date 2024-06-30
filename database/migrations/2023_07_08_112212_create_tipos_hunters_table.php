@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipos_hunters', function (Blueprint $table) {
-            $table->string('descricao');
+        Schema::create('tipos_hunters', function (Blueprint $collection) {
+            $collection->string('descricao');
+            $collection->timestamps();
+            $collection->softDeletes();
         });
     }
 
