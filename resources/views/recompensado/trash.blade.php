@@ -27,7 +27,8 @@
                                 <th>Valor</th>
                                 <th>Hunter recompensado</th>
                                 <th>Status</th>
-                                <th>Ação(ões)</th>
+                                <th>Data de exclusão</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,6 +38,7 @@
                                     <td>@dinheiro($r['valor_recompensa'])</td>
                                     <td>{{ $r['nome_hunter'] }}</td>
                                     <td>{{ $r['concluida'] == true ? 'Concluída' : 'Não concluída' }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($r->deleted_at)->format('d/m/Y H:i:s') }}</td>
                                     <td>
                                         <form action="{{ url("delete-register-rewarded/{$r['_id']}") }}" method="POST">
                                             <a href="{{ url("restore-register-rewarded/{$r['_id']}") }}" class="btn btn-primary"><i class="fa fa-arrows-rotate"></i>&nbsp;Restaurar</a>

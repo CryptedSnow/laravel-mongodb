@@ -31,6 +31,9 @@
                                 <th title="Tipo de hunter">Tipo de Hunter</th>
                                 <th title="Tipo de nen">Tipo de Nen</th>
                                 <th title="Tipo sanguíneo">Tipo sanguíneo</th>
+                                <th title="Início">Início</th>
+                                <th title="Término">Término</th>
+                                <th title="Data de exclusão">Data de exclusão</th>
                                 <th title="Ações">Ações</th>
                             </tr>
                         </thead>
@@ -44,6 +47,8 @@
                                     <td>{{ $hxh->tipo_hunter_id == $hxh->tipos_hunter->_id ? $hxh->tipos_hunter->descricao : '' }}</td>
                                     <td>{{ $hxh->tipo_nen_id == $hxh->tipos_nen->_id ? $hxh->tipos_nen->descricao : '' }}</td>
                                     <td>{{ $hxh->tipo_sangue_id == $hxh->tipos_sanguineos->_id ? $hxh->tipos_sanguineos->descricao : '' }}</td>
+                                    <td title="{{ \Carbon\Carbon::parse($hxh->inicio)->format('d/m/Y') }}">{{ \Carbon\Carbon::parse($hxh->inicio)->format('d/m/Y') }}</td>
+                                    <td title="{{ \Carbon\Carbon::parse($hxh->termino)->format('d/m/Y') }}">{{ \Carbon\Carbon::parse($hxh->termino)->format('d/m/Y') }}</td>
                                     <td>{{ \Carbon\Carbon::parse($hxh->deleted_at)->format('d/m/Y H:i:s') }}</td>
                                     <td>
                                         <form action="{{ url("delete-register-hunter/".$hxh->_id) }}" method="POST">

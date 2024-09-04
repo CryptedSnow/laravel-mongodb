@@ -25,7 +25,8 @@
                             <tr>
                                 <th>Descrição</th>
                                 <th>Valor</th>
-                                <th>Ação(ões)</th>
+                                <th>Data de exclusão</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,6 +34,7 @@
                                 <tr>
                                     <td>{{ $r->descricao_recompensa }}</td>
                                     <td>@dinheiro($r->valor_recompensa)</td>
+                                    <td>{{ \Carbon\Carbon::parse($r->deleted_at)->format('d/m/Y H:i:s') }}</td>
                                     <td>
                                         <form action="{{ url("delete-register-reward/".$r->_id) }}" method="POST">
                                             <a href="{{ url("restore-register-reward/".$r->_id) }}" class="btn btn-primary"><i class="fa fa-arrows-rotate"></i>&nbsp;Restaurar</a>
